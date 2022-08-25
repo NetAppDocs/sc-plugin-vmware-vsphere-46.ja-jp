@@ -88,7 +88,7 @@ Snapshot コピーを最適化するには、同じボリュームに関連付�
 リソースグループを作成すると、 SnapCenter によって互換性チェックが実行されます。
 
 +
-<<Manage compatibility check failures>>
+ compatibility check failures
 
 
 
@@ -167,7 +167,7 @@ Snapshot コピー名にカスタム形式を使用する場合は、このチ�
 [ 次へ ] をクリックすると、システムはまず SnapCenter が管理していることを確認し、選択したリソースがあるストレージと互換性があることを確認します。
 
 +
-「 Selected <resource-key > is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください <<Manage compatibility check failures>> を参照してください。
+「 Selected <resource-key > is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください  compatibility check failures を参照してください。
 
 . [ * スパニングディスク * ] ページで、複数のデータストアに複数の VMDK がある VM のオプションを選択します。
 +
