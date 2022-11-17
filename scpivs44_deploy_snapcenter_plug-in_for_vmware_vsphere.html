@@ -25,39 +25,42 @@
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
-  <!-- Controls AsciiDoctor Admonition Blocks -->
-  <link rel="stylesheet" type="text/css" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/font-awesome.min.css">
-
-  <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/boxshadowproperties.css">
-
-  <!-- NetApp CSS controls the technical content -->
-  <link rel="stylesheet" type="text/css" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/netapp.css">
-
-  <!-- WWW CSS Content -->
-  <link rel="stylesheet" type="text/css" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/www-luci-dotcom.min.css">
-  <link rel="stylesheet" type="text/css" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/www-netapp-dotcom.css">
-  <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/www-netapp-library-critical.min.css" media="all" >
-  <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/www-netapp-library-global-header-footer.min.css">
-
-  <!-- NetApp IE Customizations -->
-  <link rel="stylesheet" href='/ja-jp/sc-plugin-vmware-vsphere-46/css/na-utility.css' type='text/css'>
-  <link rel="stylesheet" href='/ja-jp/sc-plugin-vmware-vsphere-46/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/clouddocs.css' type='text/css'>
-  <link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/custom-dropdown.css' type='text/css'>
-  <link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/na-pagenav.css' type='text/css'>
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/netappdocs.css">
 
   
   <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/ja-jp/sc-plugin-vmware-vsphere-46/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
   <link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
-    if (document.location.hostname === "docs.netapp.com") {
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
       var head = document.getElementsByTagName('head')[0];
       var onetrustConsent = document.createElement("script");
       onetrustConsent.type = "text/javascript";
-      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
       head.appendChild(onetrustConsent);
 
       var onetrustScript = document.createElement("script");
@@ -65,40 +68,17 @@
       onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
       onetrustScript.charset = "UTF-8";
       onetrustScript.dataset.documentLanguage = "true";
-      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      onetrustScript.dataset.domainScript = consentId;
       head.appendChild(onetrustScript);
-    }
-
-    function OptanonWrapper() { }
-
-    if (document.location.hostname === "docs.netapp.com") {
-      var adobe = document.createElement("script");
-      adobe.type = "text/plain";
-      adobe.className = "optanon-category-C0002";
-      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-      head.appendChild(adobe);
-
-      var google = document.createElement("script");
-      google.type = "text/plain";
-      google.className = "optanon-category-C0002";
-      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
-      head.appendChild(google);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-81697994-3');
-    }
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-search.js'></script><script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-pagenav.js'></script><link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/ja-jp/sc-plugin-vmware-vsphere-46/css/prism-netapp.css' type='text/css'>
-
-
-  <script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-search.js'></script><script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-pagenav.js'></script><script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/na-utility.js'></script>
   <script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/clouddocs.js'></script>
   <script src='/ja-jp/sc-plugin-vmware-vsphere-46/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -137,6 +117,17 @@
           $("#expandAll").click(function(e) {
               e.preventDefault();
               $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/ja-jp/sc-plugin-vmware-vsphere-46"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
           });
 
       });
@@ -200,7 +191,7 @@
     </li>
     
   </ul>
-</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/sc-plugin-vmware-vsphere-46/issues/new?body=Page%3A%20[SnapCenter Plug-in for VMware vSphere を導入](https://docs.netapp.com/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html)" class="page-nav-contribute-link" role="button"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/discuss-sm.svg" alt="" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/sc-plugin-vmware-vsphere-46/blob/main/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/edit-sm.svg" alt="" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/article-sm.svg" alt="" class="github-icon" />寄稿者向けガイド</a></div>
+</div><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/sc-plugin-vmware-vsphere-46/issues/new?body=Page%3A%20[SnapCenter Plug-in for VMware vSphere を導入](https://docs.netapp.com/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/discuss-sm.svg" alt="" class="github-icon" />ドキュメントの変更をリクエスト</a><a target="_blank" href="https://github.com/NetAppDocs/sc-plugin-vmware-vsphere-46/blob/main/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.adoc" class="page-nav-contribute-link" role="button"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/edit-sm.svg" alt="" class="github-icon" />GitHub で編集</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/article-sm.svg" alt="" class="github-icon" />寄稿者向けガイド</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">このページ</div>
@@ -284,6 +275,8 @@
       </div>
 
       
+      
+      
       <div class="search-property-bar">
         <div id="search-demo-container" class="searchbox n-property-bar__search">
           <div id="react-search" 
@@ -330,6 +323,10 @@
           <a href="https://docs.netapp.com/zh-tw/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
           <a href="https://docs.netapp.com/ko-kr/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -372,6 +369,7 @@
   <!-- Sidebar Column -->
   
   <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/collapse.png" alt="ナビゲーション パネルを閉じる"></button>
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
     <img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/pdf.png" alt="" width="16" height="16"/>利用可能なPDF<span>
@@ -939,241 +937,810 @@
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
 </script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/index.html">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere 4.6のドキュメント"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/index.html">
         SnapCenter Plug-in for VMware vSphere 4.6のドキュメント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_release_notes.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リリースノート"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_release_notes.html">
         リリースノート
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概念"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_concepts_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="製品の概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_concepts_overview.html">
         製品の概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_overview_of_different_snapcenter_guis.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="各種 SnapCenter GUI の概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_overview_of_different_snapcenter_guis.html">
         各種 SnapCenter GUI の概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_licensing.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ライセンス"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_licensing.html">
         ライセンス
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_role_based_access_control.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ロールベースアクセス制御（ RBAC ）"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_role_based_access_control.html">
         ロールベースアクセス制御（ RBAC ）
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_types_of_rbac_for_snapcenter_users.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere ユーザ用の RBAC のタイプ"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_types_of_rbac_for_snapcenter_users.html">
         SnapCenter Plug-in for VMware vSphere ユーザ用の RBAC のタイプ
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_ontap_rbac_features_in_snapcenter.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere の ONTAP RBAC 機能"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_ontap_rbac_features_in_snapcenter.html">
         SnapCenter Plug-in for VMware vSphere の ONTAP RBAC 機能
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_predefined_roles_packaged_with_snapcenter.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere に組み込みの事前定義のロール"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_predefined_roles_packaged_with_snapcenter.html">
         SnapCenter Plug-in for VMware vSphere に組み込みの事前定義のロール
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_how_to_configure_ontap_rbac_for_snapcenter_plug-in_for_vmware_vsphere.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere 用に ONTAP RBAC を設定する方法"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_how_to_configure_ontap_rbac_for_snapcenter_plug-in_for_vmware_vsphere.html">
         SnapCenter Plug-in for VMware vSphere 用に ONTAP RBAC を設定する方法
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="はじめに"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> はじめに</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_get_started_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入の概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_get_started_overview.html">
         導入の概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_workflow_for_new_users.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新規ユーザ向けの導入ワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_workflow_for_new_users.html">
         新規ユーザ向けの導入ワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_workflow_for_existing_users.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="既存ユーザ向けの導入ワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_workflow_for_existing_users.html">
         既存ユーザ向けの導入ワークフロー
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SCV の導入要件"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> SCV の導入要件</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_planning_and_requirements.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入の計画と要件"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deployment_planning_and_requirements.html">
         導入の計画と要件
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_minimum_ontap_privileges_required.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="必要な最小 ONTAP 権限"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_minimum_ontap_privileges_required.html">
         必要な最小 ONTAP 権限
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_minimum_vcenter_privileges_required.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="最小限の vCenter 権限が必要です"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_minimum_vcenter_privileges_required.html">
         最小限の vCenter 権限が必要です
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_the_snapcenter_plug-in_for_vmware_vsphere_ova_open_virtual_appliance.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere OVA （オープン仮想アプライアンス）のダウンロード"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_the_snapcenter_plug-in_for_vmware_vsphere_ova_open_virtual_appliance.html">
         SnapCenter Plug-in for VMware vSphere OVA （オープン仮想アプライアンス）のダウンロード
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere を導入"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html">
         SnapCenter Plug-in for VMware vSphere を導入
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_post_deployment_required_operations_and_issues.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="導入後に必要な処理と問題"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_post_deployment_required_operations_and_issues.html">
         導入後に必要な処理と問題
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_log_in_to_the_snapcenter_vmware_vsphere_web_client.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter VMware vSphere Web Client にログインします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_log_in_to_the_snapcenter_vmware_vsphere_web_client.html">
         SnapCenter VMware vSphere Web Client にログインします
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="クイックスタート"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> クイックスタート</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_quick_start_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_quick_start_overview.html">
         概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_the_ova_open_virtual_appliance.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="OVA （ Open Virtual Appliance ）をダウンロードする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_the_ova_open_virtual_appliance.html">
         OVA （ Open Virtual Appliance ）をダウンロードする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere_01.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere を導入"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere_01.html">
         SnapCenter Plug-in for VMware vSphere を導入
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_storage.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージを追加します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_storage.html">
         ストレージを追加します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_backup_policies.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップポリシーを作成する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_backup_policies.html">
         バックアップポリシーを作成する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_resource_groups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループを作成する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_resource_groups.html">
         リソースグループを作成する
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="監視とレポート"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 監視とレポート</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_view_status_information.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ステータス情報を表示します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_view_status_information.html">
         ステータス情報を表示します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_monitor_jobs.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ジョブを監視する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_monitor_jobs.html">
         ジョブを監視する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_job_logs.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ジョブログをダウンロードします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_download_job_logs.html">
         ジョブログをダウンロードします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_reports.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="レポートにアクセスする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_reports.html">
         レポートにアクセスする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_generate_a_support_bundle_from_the_snapcenter_plug-in_for_vmware_vsphere_gui.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere GUI からサポートバンドルを生成"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_generate_a_support_bundle_from_the_snapcenter_plug-in_for_vmware_vsphere_gui.html">
         SnapCenter Plug-in for VMware vSphere GUI からサポートバンドルを生成
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_generate_a_support_bundle_from_the_maintenance_console.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="メンテナンスコンソールからサポートバンドルを生成する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_generate_a_support_bundle_from_the_maintenance_console.html">
         メンテナンスコンソールからサポートバンドルを生成する
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージを管理します"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> ストレージを管理します</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_storage_01.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ストレージを追加します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_storage_01.html">
         ストレージを追加します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_storage_systems.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage VM の管理 - 変更、名前変更、削除を行います"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_storage_systems.html">
         Storage VM の管理 - 変更、名前変更、削除を行います
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_storage_timeout.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定されているストレージタイムアウトを変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_storage_timeout.html">
         設定されているストレージタイムアウトを変更します
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データを保護"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> データを保護</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_protect_data_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データ保護のワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_protect_data_overview.html">
         データ保護のワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_view_vm_and_datastore_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップを表示します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_view_vm_and_datastore_backups.html">
         バックアップを表示します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_backup_policies_for_vms_and_datastores.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップポリシーを作成する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_backup_policies_for_vms_and_datastores.html">
         バックアップポリシーを作成する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_resource_groups_for_vms_and_datastores.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループを作成する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_resource_groups_for_vms_and_datastores.html">
         リソースグループを作成する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_prescripts_and_postscripts.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="プリスクリプトとポストスクリプト"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_prescripts_and_postscripts.html">
         プリスクリプトとポストスクリプト
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_a_single_vm_or_datastore_to_a_resource_group.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループに 1 つの VM またはデータストアを追加する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_a_single_vm_or_datastore_to_a_resource_group.html">
         リソースグループに 1 つの VM またはデータストアを追加する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_multiple_vms_and_datastores_to_a_resource_group.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループに複数の VM とデータストアを追加する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_add_multiple_vms_and_datastores_to_a_resource_group.html">
         リソースグループに複数の VM とデータストアを追加する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_back_up_resource_groups_on_demand.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループをオンデマンドでバックアップする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_back_up_resource_groups_on_demand.html">
         リソースグループをオンデマンドでバックアップする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_back_up_the_snapcenter_plug-in_for_vmware_vsphere_mysql_database.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="MySQL データベースをバックアップします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_back_up_the_snapcenter_plug-in_for_vmware_vsphere_mysql_database.html">
         MySQL データベースをバックアップします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_resource_groups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リソースグループの管理 - 一時停止、再開、変更、削除"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_resource_groups.html">
         リソースグループの管理 - 一時停止、再開、変更、削除
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_policies.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ポリシーの管理 - 適用解除、変更、削除"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_policies.html">
         ポリシーの管理 - 適用解除、変更、削除
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップの管理 - 名前変更、削除"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_manage_backups.html">
         バックアップの管理 - 名前変更、削除
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="データストアのマウントとアンマウント"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> データストアのマウントとアンマウント</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_mount_a_backup.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップをマウント"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_mount_a_backup.html">
         バックアップをマウント
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_unmount_a_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップをアンマウント"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_unmount_a_backup.html">
         バックアップをアンマウント
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップからリストアします"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> バックアップからリストアします</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_from_backups_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_from_backups_overview.html">
         概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_how_restore_operations_are_performed.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リストア処理の実行方法"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_how_restore_operations_are_performed.html">
         リストア処理の実行方法
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_search_for_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップを検索します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_search_for_backups.html">
         バックアップを検索します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_vms_from_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップから VM をリストアする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_vms_from_backups.html">
         バックアップから VM をリストアする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_deleted_vms_from_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップから削除した VM をリストアする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_deleted_vms_from_backups.html">
         バックアップから削除した VM をリストアする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_vmdks_from_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="バックアップから VMDK をリストアする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_vmdks_from_backups.html">
         バックアップから VMDK をリストアする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_the_most_recent_backup_of_the_mysql_database.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="MySQL データベースの最新のバックアップをリストアします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_the_most_recent_backup_of_the_mysql_database.html">
         MySQL データベースの最新のバックアップをリストアします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="MySQL データベースの特定のバックアップをリストアします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_a_specific_backup_of_the_mysql_database.html">
         MySQL データベースの特定のバックアップをリストアします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_attach_vmdks_to_a_vm.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VM に VMDK を接続する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_attach_vmdks_to_a_vm.html">
         VM に VMDK を接続する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_detach_a_virtual_disk.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="仮想ディスクを接続解除"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_detach_a_virtual_disk.html">
         仮想ディスクを接続解除
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ゲストファイルとフォルダをリストアします"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> ゲストファイルとフォルダをリストアします</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_guest_files_and_folders_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ワークフロー、前提条件、および制限事項"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_guest_files_and_folders_overview.html">
         ワークフロー、前提条件、および制限事項
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_guest_files_and_folders_from_vmdks.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMDK からゲストのファイルとフォルダをリストアする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restore_guest_files_and_folders_from_vmdks.html">
         VMDK からゲストのファイルとフォルダをリストアする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_set_up_proxy_vms_for_restore_operations.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="リストア処理用のプロキシ VM をセットアップします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_set_up_proxy_vms_for_restore_operations.html">
         リストア処理用のプロキシ VM をセットアップします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_configure_credentials_for_vm_guest_file_restores.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VM ゲストファイルのリストア用のクレデンシャルを設定する"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_configure_credentials_for_vm_guest_file_restores.html">
         VM ゲストファイルのリストア用のクレデンシャルを設定する
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_extend_the_time_of_a_guest_file_restore_session.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ゲストファイルリストアセッションの時間を延長します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_extend_the_time_of_a_guest_file_restore_session.html">
         ゲストファイルリストアセッションの時間を延長します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_guest_file_restore_scenarios_you_might_encounter.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ゲストファイルのリストアシナリオが発生する場合があります"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_guest_file_restore_scenarios_you_might_encounter.html">
         ゲストファイルのリストアシナリオが発生する場合があります
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manage SnapCenter Plug-in for VMware vSphere appliance （ VMware vSphere アプライアンス用の VMware プラグインの管理）"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> Manage SnapCenter Plug-in for VMware vSphere appliance （ VMware vSphere アプライアンス用の VMware プラグインの管理）</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restart_the_vmware_vsphere_web_client_service.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMware vSphere Web Client Service を再起動します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_restart_the_vmware_vsphere_web_client_service.html">
         VMware vSphere Web Client Service を再起動します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_the_maintenance_console.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="メンテナンスコンソールにアクセスします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_the_maintenance_console.html">
         メンテナンスコンソールにアクセスします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_plugin_password.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="メンテナンスコンソールから SnapCenter VMware プラグインのパスワードを変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_plugin_password.html">
         メンテナンスコンソールから SnapCenter VMware プラグインのパスワードを変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_and_import_certificates.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="証明書を作成してインポートします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_and_import_certificates.html">
         証明書を作成してインポートします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_unregister_plugin_from_vcenter.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter から SnapCenter Plug-in for VMware vSphere の登録を解除します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_unregister_plugin_from_vcenter.html">
         vCenter から SnapCenter Plug-in for VMware vSphere の登録を解除します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_disable_and_enable_plugin.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere を無効にして有効にします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_disable_and_enable_plugin.html">
         SnapCenter Plug-in for VMware vSphere を無効にして有効にします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_remove_plugin.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SnapCenter Plug-in for VMware vSphere を削除します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_remove_plugin.html">
         SnapCenter Plug-in for VMware vSphere を削除します
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="構成を管理します"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 構成を管理します</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_time_zones.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="タイムゾーンを変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_time_zones.html">
         タイムゾーンを変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_logon_credentials.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ログオン資格情報を変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_logon_credentials.html">
         ログオン資格情報を変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_vcenter_logon_credentials.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="vCenter ログオンクレデンシャルを変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_vcenter_logon_credentials.html">
         vCenter ログオンクレデンシャルを変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_network_settings.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="ネットワーク設定を変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_the_network_settings.html">
         ネットワーク設定を変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_configuration_default_values.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="設定のデフォルト値を変更します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_modify_configuration_default_values.html">
         設定のデフォルト値を変更します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_the_scbr_override_file.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="scbr.override ファイルを作成します"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_create_the_scbr_override_file.html">
         scbr.override ファイルを作成します
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_properties_you_can_override.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="上書き可能な設定プロパティ"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_properties_you_can_override.html">
         上書き可能な設定プロパティ
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_enable_ssh.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="SSH を有効にします。"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_enable_ssh.html">
         SSH を有効にします。
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> REST API</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis_overview.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="概要"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis_overview.html">
         概要
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_rest_apis_using_the_swagger_api_web_page.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Swagger API Web ページから REST API にアクセスします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_access_rest_apis_using_the_swagger_api_web_page.html">
         Swagger API Web ページから REST API にアクセスします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__add_and_modify_storage_vms.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Storage VM を追加および変更する REST API ワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__add_and_modify_storage_vms.html">
         Storage VM を追加および変更する REST API ワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__create_and_modify_resource_groups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API のワークフローを使用して、リソースグループを作成および変更できます"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__create_and_modify_resource_groups.html">
         REST API のワークフローを使用して、リソースグループを作成および変更できます
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__back_up_on_demand.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API ワークフローを使用してオンデマンドでバックアップ"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__back_up_on_demand.html">
         REST API ワークフローを使用してオンデマンドでバックアップ
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_vms.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VM をリストアするための REST API のワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_vms.html">
         VM をリストアするための REST API のワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_deleted_vms.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="削除した VM をリストアするための REST API のワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_deleted_vms.html">
         削除した VM をリストアするための REST API のワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_vmdks.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMDK をリストアするための REST API のワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflow__restore_vmdks.html">
         VMDK をリストアするための REST API のワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__attach_and_detach_vmdks.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="VMDK を接続および接続解除する REST API のワークフロー"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__attach_and_detach_vmdks.html">
         VMDK を接続および接続解除する REST API のワークフロー
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__mount_and_unmount_datastores.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API のワークフローを使用してデータストアをマウントおよびアンマウントできます"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__mount_and_unmount_datastores.html">
         REST API のワークフローを使用してデータストアをマウントおよびアンマウントできます
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis__download_jobs_and_generate_reports.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API を使用してジョブをダウンロードし、レポートを生成できます"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis__download_jobs_and_generate_reports.html">
         REST API を使用してジョブをダウンロードし、レポートを生成できます
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__modify_built-in_schedules.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API のワークフローを使用して組み込みのスケジュールを変更できます"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_api_workflows__modify_built-in_schedules.html">
         REST API のワークフローを使用して組み込みのスケジュールを変更できます
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis_fail_stuck_jobs.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST API を使用して、停止したジョブを失敗としてマークします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_rest_apis_fail_stuck_jobs.html">
         REST API を使用して、停止したジョブを失敗としてマークします
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="アップグレード"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> アップグレード</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_upgrade.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="以前のリリースの SnapCenter Plug-in for VMware vSphere からアップグレードする"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_upgrade.html">
         以前のリリースの SnapCenter Plug-in for VMware vSphere からアップグレードする
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_upgrade_to_a_new_patch.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="同じリリースの新しいパッチにアップグレードします"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_upgrade_to_a_new_patch.html">
         同じリリースの新しいパッチにアップグレードします
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_information_not_displayed_after_upgrading_to_a_new_patch_of_the_same_release.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="同じリリースの新しいパッチにアップグレードしたあとに情報が表示されない"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/scpivs44_information_not_displayed_after_upgrading_to_a_new_patch_of_the_same_release.html">
         同じリリースの新しいパッチにアップグレードしたあとに情報が表示されない
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/legal-notices.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法的通知"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/ja-jp/sc-plugin-vmware-vsphere-46/legal-notices.html">
         法的通知
       </a></li></ul>
 </div>
@@ -1186,14 +1753,16 @@
 </script>
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
 
 
   </div>
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container --><article class="page-content">
+    <!-- Begin of page container --><article class="page-content" id="main">
       <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/ja-jp/sc-plugin-vmware-vsphere-46/images/expand.png" alt="ナビゲーション パネルを展開する"></button>
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
@@ -1557,11 +2126,7 @@ IPv6 HTML Web クライアントの場合は、 Chrome または Firefox のい�
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <span class="n-footer__fine-print">Web サイトについてのフィードバックを</span>
-              <a target="_self" href="javascript:netapp_mailto()">お寄せください</a>
-            </li>
-            <li class="n-footer__copyright-link">
-              <a href="https://docs.netapp.com/ja-jp/announcements/">お知らせ</a>
+              <a target="_self" href="javascript:netapp_mailto()">このページに関するフィードバックをお寄せください</a>
             </li>
           </ul>
         </div>
