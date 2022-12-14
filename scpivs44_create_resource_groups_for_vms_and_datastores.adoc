@@ -54,10 +54,12 @@ SnapCenter Plug-in for VMware vSphere 4.5 以降では、 ASA アグリゲート
 
 IMPORTANT: アクセスできない状態の VM は追加しないでください。アクセスできない VM を含むリソースグループを作成することは可能ですが、そのリソースグループのバックアップは失敗します。
 
+.作業を開始する前に
 VVOL VM を含むリソースグループを作成する前に、 ONTAP Tools for VMware を導入しておく必要があります。
 
 詳細については、を参照してください https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["VMware vSphere 向け ONTAP ツール"^]。
 
+.このタスクについて
 リソースグループに対しては、いつでもリソースを追加または削除できます。
 
 * 単一リソースのバックアップ
@@ -88,7 +90,7 @@ Snapshot コピーを最適化するには、同じボリュームに関連付�
 リソースグループを作成すると、 SnapCenter によって互換性チェックが実行されます。
 
 +
- compatibility check failures
+<<互換性チェックの失敗を管理します>>
 
 
 
@@ -167,7 +169,7 @@ Snapshot コピー名にカスタム形式を使用する場合は、このチ�
 [ 次へ ] をクリックすると、システムはまず SnapCenter が管理していることを確認し、選択したリソースがあるストレージと互換性があることを確認します。
 
 +
-「 Selected <resource-key > is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください  compatibility check failures を参照してください。
+「 Selected <resource-key > is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください <<互換性チェックの失敗を管理します>> を参照してください。
 
 . [ * スパニングディスク * ] ページで、複数のデータストアに複数の VMDK がある VM のオプションを選択します。
 +
