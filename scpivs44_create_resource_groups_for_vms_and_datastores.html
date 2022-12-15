@@ -1805,7 +1805,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 05:39:34 +0000">11/17/2022</time>
+    <time datetime="2022-12-14 18:23:18 +0000">12/14/2022</time>
     
   
 
@@ -1894,12 +1894,14 @@ VMware vSphere Cluster Service （ vCLS ）を使用している場合は、 vCL
 </table>
 </div>
 <div class="paragraph">
+<div class="title">作業を開始する前に</div>
 <p>VVOL VM を含むリソースグループを作成する前に、 ONTAP Tools for VMware を導入しておく必要があります。</p>
 </div>
 <div class="paragraph">
 <p>詳細については、を参照してください <a href="https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html" target="_blank" rel="noopener">"VMware vSphere 向け ONTAP ツール"</a>。</p>
 </div>
 <div class="paragraph">
+<div class="title">このタスクについて</div>
 <p>リソースグループに対しては、いつでもリソースを追加または削除できます。</p>
 </div>
 <div class="ulist">
@@ -1942,10 +1944,8 @@ VMware vSphere Cluster Service （ vCLS ）を使用している場合は、 vCL
 <div class="paragraph">
 <p>リソースグループを作成すると、 SnapCenter によって互換性チェックが実行されます。</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>compatibility check failures</pre>
-</div>
+<div class="paragraph">
+<p><a href="#互換性チェックの失敗を管理します">互換性チェックの失敗を管理します</a></p>
 </div>
 </li>
 </ul>
@@ -2086,7 +2086,7 @@ VMware vSphere Cluster Service （ vCLS ）を使用している場合は、 vCL
 <p>[ 次へ ] をクリックすると、システムはまず SnapCenter が管理していることを確認し、選択したリソースがあるストレージと互換性があることを確認します。</p>
 </div>
 <div class="paragraph">
-<p>「 Selected &lt;resource-key &gt; is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください  compatibility check failures を参照してください。</p>
+<p>「 Selected &lt;resource-key &gt; is not SnapCenter compatible 」というメッセージが表示される場合、選択したリソースは SnapCenter と互換性がありません。を参照してください <a href="#互換性チェックの失敗を管理します">互換性チェックの失敗を管理します</a> を参照してください。</p>
 </div>
 </li>
 <li>

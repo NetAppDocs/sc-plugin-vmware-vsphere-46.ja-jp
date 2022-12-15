@@ -1805,7 +1805,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-08-25 12:33:54 +0000">08/25/2022</time>
+    <time datetime="2022-12-14 18:23:18 +0000">12/14/2022</time>
     
   
 
@@ -1857,9 +1857,11 @@
 <p>他のデータ保護処理に使用する必要がなくなった SnapCenter Plug-in for VMware vSphere バックアップは削除することができます。1 つのバックアップを削除したり、複数のバックアップを同時に削除したりできます。</p>
 </div>
 <div class="paragraph">
+<div class="title">作業を開始する前に</div>
 <p>マウントされているバックアップは削除できません。バックアップを削除する前に、アンマウントする必要があります。</p>
 </div>
 <div class="paragraph">
+<div class="title">このタスクについて</div>
 <p>セカンダリストレージ上の Snapshot コピーは、 SnapCenter VMware プラグインではなく、 ONTAP の保持設定によって管理されます。このため、 SnapCenter VMware プラグインを使用してバックアップを削除すると、プライマリストレージ上の Snapshot コピーは削除されますが、セカンダリストレージ上の Snapshot コピーは削除されません。セカンダリストレージに Snapshot コピーが残っている場合は、リストア要求に対応するために、 SnapCenter VMware プラグインがバックアップに関連付けられたメタデータを保持します。ONTAP の保持プロセスでセカンダリ Snapshot コピーが削除されると、 SnapCenter VMware プラグインはパージジョブを使用してメタデータを削除します。このジョブは一定の間隔で実行されます。</p>
 </div>
 <div class="olist arabic">
